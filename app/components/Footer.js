@@ -1,28 +1,32 @@
 "use client"
 
-import React, { useState } from "react";
+import React from "react";
 import Navlinks from "./Navlinks";
 import { FaInstagram, FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import { toast, Toaster } from 'react-hot-toast';
+import { useForm } from "react-hook-form"
+
 
 
 const Footer = () => {
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify(data),
     });
 
-    await res.json();
-    toast.success('Messge sent successfully!', {
+    const resData = await res.json();
+    toast.success(resData.message, {
       duration: 5000,
       style: {
         background: "#fff",
@@ -31,16 +35,13 @@ const Footer = () => {
         borderRadius: "8px",
       },
     })
-
-    setName("")
-    setEmail("")
-    setMessage("")
+    reset()
   };
 
 
   return (
     <>
-      <Toaster/>
+      <Toaster />
       <footer className="flex justify-center items-center py-12 bg-gradient-to-b from-[#f9fafb] to-[#efefef]">
         <div className="w-5/6 bg-white shadow-xl rounded-2xl p-6 space-y-6">
 
@@ -58,36 +59,47 @@ const Footer = () => {
 
             <div className="flex-1">
               <h3 className="text-lg font-semibold text-gray-700">Message Me</h3>
-              <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+              <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-3">
                 <input
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                  name="name"
                   type="text"
                   placeholder="Your Name"
                   className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
-                />
+                  {...register("name",
+                    {
+                      required: { value: true, message: "Name is required" },
+                      minLength: { value: 3, message: "Min length is 3" },
+                      maxLength: { value: 16, message: "Max length is 16" }
+                    })} />
+                {errors.name && <div className="text-red-600">{errors.name.message}</div>}
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  name="email"
                   type="email"
                   placeholder="Your Email"
                   className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+                  {...register("email", { required: { value: true, message: "Email is required" } })}
                 />
+                {errors.email && <div className="text-red-600">{errors.email.message}</div>}
+
                 <textarea
-                  onChange={(e) => setMessage(e.target.value)}
-                  value={message}
-                  name="message"
                   placeholder="Your Message"
                   className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none h-20"
-                />
+
+                  {...register("message",
+                    {
+                      required: { value: true, message: "Message is required" }, minLength: { value: 10, message: "Min length is 10" },
+                      maxLength: { value: 300, message: "Max length is 300" },
+                    })} />
+                {errors.message && <div className="text-red-600">{errors.message.message}</div>}
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition shadow-md"
+                  disabled={isSubmitting}
+                  className={`w-full py-2 rounded-lg transition shadow-md text-white 
+    ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
+
+
+
               </form>
             </div>
 
