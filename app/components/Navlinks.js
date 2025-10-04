@@ -31,6 +31,18 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
       <button
         onClick={() => {
           document
+            .getElementById("projects")
+            .scrollIntoView({ behavior: "smooth" });
+          onClick && onClick();
+        }}
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
+      >
+        Projects
+      </button>
+
+      <button
+        onClick={() => {
+          document
             .getElementById("contact")
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();

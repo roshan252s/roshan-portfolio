@@ -1,6 +1,7 @@
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import Projects from "./components/Projects";
 
 
 
@@ -18,6 +19,12 @@ export default function Homepage() {
         id="about"
         className="min-h-[80vh] bg-[#efefef] scroll-mt-16 flex justify-center items-center" >
         <About />
+      </section>
+
+      <section
+        id="projects"
+        className="min-h-[80vh] bg-[#d6d6d6] scroll-mt-16 flex justify-center items-center" >
+        <Projects />
       </section>
 
 
