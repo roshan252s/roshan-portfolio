@@ -11,7 +11,7 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
       >
         Home
       </button>
@@ -23,7 +23,7 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
       >
         About
       </button>
@@ -35,7 +35,7 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
       >
         Contact
       </button>

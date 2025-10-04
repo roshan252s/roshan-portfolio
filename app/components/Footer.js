@@ -19,23 +19,42 @@ const Footer = () => {
 
 
   const onSubmit = async (data) => {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const resData = await res.json();
-    toast.success(resData.message, {
-      duration: 5000,
-      style: {
-        background: "#fff",
-        color: "#333",
-        padding: "16px",
-        borderRadius: "8px",
-      },
-    })
-    reset()
+      const resData = await res.json();
+      if (!res.ok) {
+        toast.error(resData.message, {
+          duration: 5000,
+          style: {
+            background: "#fff",
+            color: "#333",
+            padding: "16px",
+            borderRadius: "8px",
+          },
+        })
+        return;
+      }
+
+      toast.success(resData.message, {
+        duration: 5000,
+        style: {
+          background: "#fff",
+          color: "#333",
+          padding: "16px",
+          borderRadius: "8px",
+        },
+      })
+
+      reset()
+    } catch (error) {
+      toast.error("Network error, please try again later");
+
+    }
   };
 
 

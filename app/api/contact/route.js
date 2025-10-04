@@ -6,7 +6,10 @@ import { NextResponse } from "next/server"
 export async function POST(request) {
     try {
         const { name, email, message } = await request.json()
-        if (!name || !email || !message) {
+        const trimmedName = name.trim()
+        const trimmedEmail = email.trim()
+        const trimmedMessage = message.trim()
+        if (!trimmedName || !trimmedEmail || !trimmedMessage) {
             console.log("Name, email, and message are required.")
             return NextResponse.json(
                 { message: "Name, email, and message are required." },
@@ -15,7 +18,19 @@ export async function POST(request) {
         }
 
         await dbConnect()
-        await Message.create({ name, email, message })
+        const newMessage = await Message.create({
+            name: trimmedName,
+            email: trimmedEmail,
+            message: trimmedMessage,
+        })
+
+        if (!newMessage) {
+            return NextResponse.json({
+                message: "Failed to send message !"
+            },
+                { status: 500 }
+            )
+        }
         console.log("Message sent successfully.");
         return NextResponse.json({
             message: "Message sent successfully !"
