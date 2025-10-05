@@ -11,7 +11,7 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300 hover:underline hover:scale-105"
       >
         Home
       </button>
@@ -23,7 +23,7 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300 hover:underline hover:scale-105"
       >
         About
       </button>
@@ -35,7 +35,7 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300 hover:underline hover:scale-105"
       >
         Projects
       </button>
@@ -47,10 +47,19 @@ const Navlinks = ({ className = "", vertical = false, onClick }) => {
             .scrollIntoView({ behavior: "smooth" });
           onClick && onClick();
         }}
-        className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
+        className="cursor-pointer hover:text-blue-500 transition-colors duration-300 hover:underline hover:scale-105"
       >
         Contact
       </button>
+
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-4 py-2 bg-blue-400  rounded-lg hover:bg-blue-700 hover:text-white transition text-black"
+      >
+        Resume
+      </a>
     </div>
   );
 };

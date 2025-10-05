@@ -20,7 +20,7 @@ const About = () => {
       </div>
 
       <div className="w-5/6 flex flex-col lg:flex-row gap-12">
-        <div className="flex-1 flex flex-col lg:flex-row gap-6 items-center bg-white rounded-2xl p-6 shadow-lg">
+        <div className="hover:scale-105 transition-transform duration-300 flex-1 flex flex-col lg:flex-row gap-6 items-center bg-white rounded-2xl p-6 shadow-lg">
           <Image
             src="/profile.jpeg"
             priority={true}
@@ -49,7 +49,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg">
+        <div className="hover:scale-105 transition-transform duration-300 flex-1 bg-white rounded-2xl p-6 shadow-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center lg:text-left">Technical Skills</h3>
           <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-gray-700 text-lg">
             <li className="flex items-center gap-2 justify-center lg:justify-start">

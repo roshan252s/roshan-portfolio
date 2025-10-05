@@ -6,9 +6,8 @@ const AnimatedTyping = () => {
     return (
         <Typewriter
             words={[
-                "Full-Stack Developer",
-                "React & Node.js Specialist",
-                "UI/UX Enthusiast",
+                "Web Developer",
+                "UI/UX Designer",
             ]}
             loop={0}
             cursor

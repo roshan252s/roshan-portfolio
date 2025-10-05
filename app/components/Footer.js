@@ -78,7 +78,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-18">
 
 
-            <div className="flex-1">
+            <div className="flex-1  shadow-green-300 shadow-md px-10 py-5 rounded-lg">
               <h3 className="text-lg font-semibold text-gray-700">Message Me</h3>
               <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-3">
                 <input
@@ -124,7 +124,7 @@ const Footer = () => {
               </form>
             </div>
 
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 space-y-4 shadow-blue-300 shadow-md px-10 py-5 rounded-2xl">
               <div>
                 <h3 className="text-lg font-semibold text-gray-700">Quick Links</h3>
                 <ul className="mt-2 space-y-2 text-gray-600">
