@@ -5,13 +5,13 @@ const projectsData = [
         title: "Portfolio Website",
         description: "A personal portfolio website built with Next.js and Tailwind CSS showcasing my projects and skills.",
         tech: ["Next.js", "Tailwind", "React"],
-        link: "https://github.com/roshan252s/roshan-portfolio",
+        link: "https://roshan-portfolio-86hj.onrender.com",
     },
     {
         title: "Music Player",
         description: "A fully-featured web-based music player built with HTML, CSS, and JavaScript. Includes play/pause, next/previous track, progress bar, and playlist functionality.",
         tech: ["HTML", "CSS", "JavaScript"],
-        link: "https://github.com/roshan252s/music-player",
+        link: "https://music-player-lf2q.onrender.com/",
     },
  
 ];
