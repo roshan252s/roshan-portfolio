@@ -128,7 +128,7 @@ const Footer = () => {
               <div>
                 <h3 className="text-lg font-semibold text-gray-700">Quick Links</h3>
                 <ul className="mt-2 space-y-2 text-gray-600">
-                  <Navlinks className="flex-col justify-start items-start gap-2" />
+                  <Navlinks className="flex-col justify-start items-start gap-2" showResume={false} />
                 </ul>
               </div>
 
