@@ -5,10 +5,12 @@ import Navlinks from "./Navlinks";
 import { FaInstagram, FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import { toast, Toaster } from 'react-hot-toast';
 import { useForm } from "react-hook-form"
+import Image from "next/image";
 
 
 
 const Footer = () => {
+
 
   const {
     register,
@@ -139,8 +141,16 @@ const Footer = () => {
                   <a href="https://facebook.com/roshan252s" target="_blank">
                     <FaFacebook className="text-2xl text-blue-600 hover:scale-110 transition-transform" />
                   </a>
-                  <a href="https://twitter.com/roshan252s" target="_blank">
+                  {/* <a href="https://twitter.com/roshan252s" target="_blank">
                     <FaTwitter className="text-2xl text-blue-400 hover:scale-110 transition-transform" />
+                  </a> */}
+                  <a href="https://twitter.com/roshan252s" target="_blank">
+                    <Image
+                      src="/images/x.svg"
+                      alt="Logo"
+                      width={24}
+                      height={24}
+                    />
                   </a>
                   <a href="https://github.com/roshan252s" target="_blank">
                     <FaGithub className="text-2xl text-gray-800 hover:scale-110 transition-transform" />
